@@ -1,0 +1,239 @@
+/* || RESETS || */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+/* || FONTS || */
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+  
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+  
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+  
+.roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+  
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+  
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+.roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+  
+.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+  
+.roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+  
+
+/* || LAYOUT || */
+ul {
+    list-style-type: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* || HEADER || */
+.header {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    row-gap: 10px;
+    box-shadow: 0 10px 10px -10px rgb(150, 150, 150);
+}
+
+.header-search img {
+    height: 2rem;
+}
+
+/* || SIDEBAR || */
+.sidebar {
+    grid-row: 1 / -2;
+    background-color: #34d399;
+    text-decoration: none;
+    padding: 0px;
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 30px;
+    align-items: center;
+}
+
+.dashboardhead {
+    display: grid;
+    align-items: center;
+    grid-template-columns: min-content 1fr;
+    font-size: 1.3rem;
+    padding: 15px;
+    gap: 1rem;
+}
+
+.sidebar-img {
+    height: 1.3rem;
+    margin: 0 1.6rem 0 0.4rem;
+}
+
+.sidebar a {
+    color: black;
+    text-decoration: none;
+}
+
+.dash-icon {
+    height: 2rem;
+    margin: 0 1.6rem 0 0.4rem;
+}
+
+.menu1 ul,
+.menu2 ul {
+    font-family: "roboto-regular", sans-serif, system-ui;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: -20px;
+}
+
+.menu1 ul li,
+.menu2 ul li {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4rem;
+}
+
+li > a {
+    cursor: default;
+    /* below corrects a weird formatting issue that occurs when wrapping an 'a' element around an 'img' */
+    display: contents;
+}
+
+.sidebar li:hover {
+    font-size: 1.4rem;
+    img {
+        height: 1.4rem;
+    }    
+}
+
+/* || PROJECTS || */
+.projects-container {
+    grid-column: 2;
+    background-color: #ecfdf5;
+}
+
+/* || ANNOUNCEMENTS || */
+
+/* || TRENDING || */
+
+/* || FOOTER || */
+.footer {
+    grid-column: 1 / -1;
+    grid-row: -1;
+    padding: 3rem;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    background-color: #047857;
+    color: #a7f3d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    color: #a7f3d0;
+}
