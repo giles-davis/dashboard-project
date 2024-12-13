@@ -1,4 +1,4 @@
-/* || RESETS || */
+/* || RESETS ||
 
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
@@ -128,19 +128,141 @@ ul {
     min-height: 100vh;
 }
 
+header,
+.main,
+footer {
+    font-family: "Roboto", sans-serif, system-ui;
+}
+
 /* || HEADER || */
-.header {
+header {
     grid-column: 2;
+    padding: 15px 50px;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    box-shadow: 0 10px 10px -10px rgb(150, 150, 150);
+    position: relative;
+    z-index: 2;
+}
+
+.header-top {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
-    row-gap: 10px;
-    box-shadow: 0 10px 10px -10px rgb(150, 150, 150);
 }
 
-.header-search img {
+.header-search img,
+.notify-img {
+    height: 1.3rem;
+    width: 1.3rem; 
+    align-items: flex-start;
+}
+
+.header-search {
+    display: flex; 
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+input[type="search"] {
+    width: 90%;
+    height: 32px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #ecfdf5;
+    font-weight: 500;
+    padding: 12px;
+}
+
+input[type="search"]:focus {
+    outline: 2px solid #022c22;
+    box-shadow: 2px 2px 4px gray;
+}
+
+.header-nav {
+    grid-column: 2;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    gap: 15px;
+    align-items: center;
+    padding: 5px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.header-nav > a:last-child:hover {
+    text-decoration: underline;
+}
+
+.small-puzzle {
     height: 2rem;
 }
+
+.header-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.greeting-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.greeting-puzzle-container {
+    flex-shrink: 0;
+}
+
+.header-greeting-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-greeting-line1 {
+    font-size: 0.9rem;
+}
+
+.header-greeting-line2 {
+    font-size: 1.2rem;
+}
+
+.large-puzzle {
+    height: 4rem;
+    width: 4rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+.header-buttons button {
+    padding: 8px 24px;
+    border-radius: 15px;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #34d399;
+    color: black;
+    cursor: pointer;
+}
+
+.header-buttons button:hover {
+    background-color: #047857;
+    color: #34d399;
+}
+
 
 /* || SIDEBAR || */
 .sidebar {
@@ -158,6 +280,9 @@ ul {
     display: grid;
     align-items: center;
     grid-template-columns: min-content 1fr;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     font-size: 1.3rem;
     padding: 15px;
     gap: 1rem;
@@ -180,7 +305,8 @@ ul {
 
 .menu1 ul,
 .menu2 ul {
-    font-family: "roboto-regular", sans-serif, system-ui;
+    font-family: "Roboto", sans-serif, system-ui;
+    font-weight: 500;
     color: black;
     display: flex;
     flex-direction: column;
@@ -210,23 +336,177 @@ li > a {
 }
 
 /* || PROJECTS || */
-.projects-container {
+.main {
     grid-column: 2;
+    grid-row: 2;
     background-color: #ecfdf5;
+    padding: 40px 30px 70px 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+    row-gap: 30px;
 }
 
-/* || ANNOUNCEMENTS || */
+.project-section {
+    padding: 20px;
+}
+
+.projects-container {
+    grid-row: 1 / 3;
+    background-color: #ecfdf5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px, 0;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card,
+.article-container,
+.trending-container {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px lightgray;
+}
+
+.card {
+    background-color: white;
+    height: 260px;
+    border-left: 8px solid #022c22;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px lightgray;
+}
+
+.card:hover {
+    box-shadow: 0 0 12px #022c22;
+}
+
+
+.card-icons {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.card-icons img {
+    height: 1.3rem;
+    vertical-align: bottom;
+}
+
+.card-icons img:hover {
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: #022c22;
+    color: #34d399;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 5px 0;
+    border-radius: 8px;
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    margin-left: -30px;
+}
+
+.tooltip .tooltiptext.watch {
+    width: 70px;
+    margin-left: -35px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* || ARTICLES || */
+.article-section {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    padding: 20px;
+}
+
+.article-container {
+    background-color: white;
+    display: grid;
+    gap: 20px;
+}
+
+.article-container h4 {
+    margin-bottom: 3px;
+}
+
+.article-container p {
+    font-size: 0.8rem;
+    color: black;
+    line-height: 1.5;
+
+    /* below code truncates the text at 3 lines and adds an ellipsis */
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    overflow: hidden;
+}
+
+.article-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.article-container a:hover {
+    text-decoration: underline;
+}
+
+.article1-container,
+.article2-container {
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.article1-container,
+.article2-container,
+.article3-container {
+    padding: 10px;
+}
+
+.article1-container:hover,
+.article2-container:hover,
+.article3-container:hover {
+    background-color: #ecfdf5;
+    box-shadow: 0 14px 14px -14px #022c22;
+    border-radius: 10px;
+    border: solid #a7f3d0;
+}
 
 /* || TRENDING || */
 
 /* || FOOTER || */
-.footer {
+footer {
     grid-column: 1 / -1;
     grid-row: -1;
-    padding: 3rem;
+    padding: 1rem;
     text-align: center;
     font-family: "Roboto", sans-serif;
-    font-weight: 900;
+    font-weight: 500;
     background-color: #047857;
     color: #a7f3d0;
     display: flex;
@@ -234,6 +514,6 @@ li > a {
     align-items: center;
 }
 
-.footer a {
+footer a {
     color: #a7f3d0;
-}
+} 
